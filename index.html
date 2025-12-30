@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rashin Jewellers - Premium Collection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- CSS Variables & Reset --- */
+        :root {
+            --primary-gold: #D4AF37; /* Royal Gold Color */
+            --dark-bg: #121212;
+            --light-text: #f4f4f4;
+            --card-bg: #1e1e1e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif; /* Luxury Font */
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* --- Header --- */
+        header {
+            background-color: rgba(0,0,0,0.9);
+            padding: 15px 20px;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--primary-gold);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li { margin-left: 20px; }
+        
+        nav ul li a {
+            color: #fff;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover { color: var(--primary-gold); }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1573408301185-9146fe634ad0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            max-width: 600px;
+        }
+
+        .btn {
+            background-color: var(--primary-gold);
+            color: #000;
+            padding: 10px 25px;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #fff;
+            transform: scale(1.05);
+        }
+
+        /* --- Daily Rates Section (Critical) --- */
+        .rates-section {
+            background-color: #000;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .rate-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .rate-card {
+            background: var(--card-bg);
+            border: 1px solid var(--primary-gold);
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 4px 10px rgba(212, 175, 55, 0.2);
+        }
+
+        .rate-card h3 { color: var(--primary-gold); font-size: 1.5rem; }
+        .rate-card .price { font-size: 2rem; font-weight: bold; margin: 10px 0; }
+        .rate-card .date { font-size: 0.9rem; color: #888; }
+
+        /* --- Product Sections --- */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 30px;
+            font-size: 2.5rem;
+            color: var(--primary-gold);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 0 5%;
+            margin-bottom: 50px;
+        }
+
+        .product-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: 0.3s;
+            border: 1px solid #333;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-gold);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .product-info h3 { margin-bottom: 10px; font-size: 1.2rem; }
+        .product-info p { color: #aaa; font-size: 0.9rem; }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #000;
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid var(--primary-gold);
+        }
+
+        .social-icons a {
+            color: var(--primary-gold);
+            font-size: 1.5rem;
+            margin: 0 10px;
+        }
+
+        /* --- WhatsApp Float --- */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* --- Mobile Responsive --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav ul { display: none; } /* Simplified for demo */
+            .rate-container { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">RASHIN JEWELLERS</div>
+        <nav>
+            <ul>
+                <li><a href="#rates">Daily Rates</a></li>
+                <li><a href="#gold">Gold Collection</a></li>
+                <li><a href="#silver">Silver Collection</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Pure Gold, Pure Trust</h1>
+        <p>राशीन मधील सर्वात विश्वसनीय सुवर्णपेढी. शुद्धता आणि परंपरेचा अनोखा संगम.</p>
+        <a href="#gold" class="btn">Explore Collection</a>
+    </section>
+
+    <section id="rates" class="rates-section">
+        <h2 style="color:white; margin-bottom:20px;">Today's Live Rates (आजचे भाव)</h2>
+        <div class="rate-container">
+            <div class="rate-card">
+                <h3><i class="fas fa-coins"></i> 24K Gold (10g)</h3>
+                <div class="price">₹72,500*</div>
+                <div class="date" id="gold-date">Updated: Today</div>
+                <small>*Rates may vary slightly</small>
+            </div>
+            <div class="rate-card">
+                <h3><i class="fas fa-ring"></i> Silver (1kg)</h3>
+                <div class="price">₹84,000*</div>
+                <div class="date" id="silver-date">Updated: Today</div>
+            </div>
+        </div>
+    </section>
+
+    <h2 class="section-title" id="gold">Gold Collection (सुवर्ण दागिने)</h2>
+    <section class="product-grid">
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1599643478518-17488fbbcd75?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Gold Necklace">
+            <div class="product-info">
+                <h3>Bridal Necklace</h3>
+                <p>Antique Design | 22K Gold</p>
+                <a href="#" class="btn" style="font-size:0.8rem; padding:5px 15px;">Enquire Now</a>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Mangalsutra">
+            <div class="product-info">
+                <h3>Latest Mangalsutra</h3>
+                <p>Lightweight & Modern Designs</p>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Gold Ring">
+            <div class="product-info">
+                <h3>Mens & Womens Rings</h3>
+                <p>Classic & Stone Work</p>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Bangles">
+            <div class="product-info">
+                <h3>Patlya & Bangles</h3>
+                <p>Traditional Maharashtrian Style</p>
+            </div>
+        </div>
+    </section>
+
+    <h2 class="section-title" id="silver" style="color: #C0C0C0;">Silver Collection (चांदीचे दागिने)</h2>
+    <section class="product-grid">
+        <div class="product-card" style="border-color: #C0C0C0;">
+            <img src="https://images.unsplash.com/photo-1631862529949-0f4f9f743c68?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Painjan">
+            <div class="product-info">
+                <h3>Silver Painjan</h3>
+                <p>Heavy & Fancy Designs</p>
+            </div>
+        </div>
+        <div class="product-card" style="border-color: #C0C0C0;">
+            <img src="https://images.unsplash.com/photo-1610419864275-680456209587?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Puja Silver">
+            <div class="product-info">
+                <h3>Puja Utensils (Pooja Sahitya)</h3>
+                <p>Pure Silver Niranjan & Taat</p>
+            </div>
+        </div>
+        <div class="product-card" style="border-color: #C0C0C0;">
+            <img src="https://images.unsplash.com/photo-1583226343513-89da3b2b005e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Idols">
+            <div class="product-info">
+                <h3>Silver Idols (Murti)</h3>
+                <p>Ganpati & Laxmi Murti</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h2 style="color:var(--primary-gold)">RASHIN JEWELLERS</h2>
+        <p>Main Market Road, Near Jagdamba Mata Temple, Rashin - 414403</p>
+        <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+        <div class="social-icons" style="margin-top:20px;">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p style="margin-top:20px; font-size:0.8rem; color:#555;">Designed by Your Name</p>
+    </footer>
+
+    <a href="https://wa.me/919876543210" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Script to set Today's Date automatically
+        const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const today = new Date().toLocaleDateString('en-IN', dateOptions);
+        
+        document.getElementById('gold-date').innerText = "Updated: " + today;
+        document.getElementById('silver-date').innerText = "Updated: " + today;
+
+        // Note: In a real website, you would fetch rates from an API here.
+        // For now, it is hardcoded in HTML for demo purposes.
+    </script>
+
+</body>
+</html>
